@@ -2,10 +2,11 @@ int sensorValue = 0;
 
 int outputValue = 0;
 
+int pinLed = 9;
 void setup()
 {
   pinMode(A0, INPUT);
-  pinMode(9, OUTPUT);
+  pinMode(pinLed, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -16,7 +17,7 @@ void loop()
   // map it to the range of the analog out:
   outputValue = map(sensorValue, 0, 1023, 0, 255);
   // change the analog out value:
-  analogWrite(9, outputValue);
+  analogWrite(pinLed, outputValue);
   // print the results to the serial monitor:
   Serial.print("sensor = ");
   Serial.print(sensorValue);
